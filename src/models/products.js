@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
 
 
 //Add only unique products --> else update
-productSchema.statics.findByName = async (name,quantity)=>{
+productSchema.statics.createOrUpdate = async (name,quantity)=>{
     const product = await Product.findOne({name})
 
     if(product){

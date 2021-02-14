@@ -2,7 +2,7 @@ const Product = require('../models/products')
 
 exports.products_add = async(req,res)=>{
     try{
-        const product = await Product.findByName(req.body.name,req.body.quantity)
+        const product = await Product.createOrUpdate(req.body.name,req.body.quantity)
         await product.save()
         res.send(product)
     }catch(e){
